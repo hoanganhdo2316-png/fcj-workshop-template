@@ -1,59 +1,30 @@
 ---
 title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+date: 2025-09-29
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+**Thời gian:** 29/09/2025 – 05/10/2025
 
-### Mục tiêu tuần 2:
+### Mục tiêu tuần 2
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Hiểu máy chủ ảo và mạng riêng trong AWS.
+- Tìm hiểu cách tài nguyên **EC2** giao tiếp trong **VPC**.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Nội dung học tập trong tuần
 
+| STT | Nội dung thực hiện | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| ---: | --- | --- | --- | --- |
+| 1 | Tìm hiểu loại instance, AMI, storage, security group và cách truy cập **EC2**. | 29/09/2025 | 30/09/2025 | [**Amazon EC2**](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) |
+| 2 | Ôn tập **VPC**, subnet, route table, internet gateway và ranh giới mạng. | 01/10/2025 | 02/10/2025 | [**Amazon VPC**](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) |
+| 3 | Phân biệt public/private subnet và vai trò của **IAM** trong truy cập instance. | 03/10/2025 | 05/10/2025 | [**VPC** subnets](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html), [**EC2** **IAM** roles](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) |
+| 4 | Thử dựng máy chủ **Amazon EC2** đầu tiên với loại instance micro. | 29/09/2025 | 05/10/2025 | [**Amazon EC2**](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) |
+| 5 | Học cách kết nối đến máy chủ **Amazon EC2** qua SSH bằng tệp khóa riêng `.pem`. | 29/09/2025 | 29/09/2025 | [SSH – **Amazon EC2**](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-ssh.html) |
 
-### Kết quả đạt được tuần 2:
+### Kết quả đạt được trong tuần
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Hiểu mối quan hệ giữa **EC2** và các thành phần mạng xung quanh.
+- Nâng cao khả năng phân tích luồng truy cập và kiểm soát bảo mật cơ bản.
+- Dựng được máy chủ **Amazon EC2** micro đầu tiên. Tôi chọn nhầm Region ở châu Âu nên kết nối có độ trễ cao.

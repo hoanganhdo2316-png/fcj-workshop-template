@@ -1,57 +1,40 @@
 ---
 title: "Week 9 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-10-25
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+**Period:** 25/10/2026 – 30/10/2026
 
-### Week 9 Objectives:
+### Week 9 objectives
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Analyze the requirements and define the scope of the Macket project, an automated platform for collecting and filtering second-hand electronics listings from Facebook.
+- Design a cloud architecture using AWS services with consideration for scalability and infrastructure costs.
+- Deploy and configure the foundational AWS infrastructure, including **Amazon VPC**, **EC2**, **RDS** PostgreSQL, and **S3**.
+- Establish the backend development environment and verify connectivity between cloud resources.
+- Configure domain access and secure communication using HTTPS.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Activities during the week
 
+| No. | Activities | Start Date | Completion Date | Reference Material |
+| ---: | --- | --- | --- | --- |
+| 1 | Analyze the project requirements, identify the main system components, and define the data collection and processing workflow. | 25/10/2026 | 25/10/2026 | — |
+| 2 | Design the AWS cloud architecture. Select appropriate AWS services, including **EC2**, **RDS**, **S3**, and **Lambda**. Review the proposed infrastructure and estimate operating costs. | 26/10/2026 | 26/10/2026 | [AWS Pricing Calculator](https://calculator.aws/) |
+| 3 | Configure the **Amazon VPC** environment, subnets, route tables, and Security Groups. Launch an **EC2** instance running Ubuntu and establish remote access through SSH. | 27/10/2026 | 27/10/2026 | [**Amazon VPC**](https://docs.aws.amazon.com/vpc/) |
+| 4 | Deploy **Amazon RDS** PostgreSQL, configure database access permissions, and establish connectivity between **EC2** and **RDS** using an encrypted connection. | 28/10/2026 | 28/10/2026 | [**Amazon RDS**](https://docs.aws.amazon.com/rds/) |
+| 5 | Initialize the FastAPI backend, configure SQLAlchemy and PostgreSQL drivers, and implement health-check endpoints. Investigate and resolve database integration and embedding test errors. | 29/10/2026 | 29/10/2026 | [FastAPI Documentation](https://fastapi.tiangolo.com/) |
+| 6 | Configure **Amazon S3** for media storage. Set up Nginx as a reverse proxy and run the backend as a systemd service. | 30/10/2026 | 30/10/2026 | [**Amazon S3**](https://docs.aws.amazon.com/s3/) |
+| 7 | Point the `macket.io.vn` domain to the server and enable HTTPS using Certbot. | 30/10/2026 | 30/10/2026 | [Certbot](https://certbot.eff.org/) |
 
-### Week 9 Achievements:
+### Weekly results
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Defined the project requirements and designed the initial AWS cloud architecture for Macket.
+- Established the foundational networking, computing, database, and storage infrastructure.
+- Successfully configured **EC2** and established connectivity with **RDS** PostgreSQL.
+- Initialized the FastAPI backend and verified the application and database health-check endpoints.
+- Resolved initial database integration errors and successfully tested vector embedding storage.
+- Configured the project domain, Nginx reverse proxy, and HTTPS access.
+- The basic Macket interface was accessible at `macket.io.vn`.
+- Established a functional cloud environment for further application development.

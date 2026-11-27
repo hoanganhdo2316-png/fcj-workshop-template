@@ -1,57 +1,37 @@
 ---
 title: "Week 11 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-11-05
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+**Period:** 05/11/2026 – 09/11/2026
 
-### Week 11 Objectives:
+### Week 11 objectives
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Develop an AI-based classification workflow for collected Facebook posts.
+- Distinguish individual sellers from commercial sellers and identify relevant electronics listings.
+- Develop backend APIs for accessing and managing collected data.
+- Develop the Macket web interface for browsing second-hand electronics listings.
+- Integrate data collection, AI processing, database storage, and application components.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Activities during the week
 
+| No. | Activities | Start Date | Completion Date | Reference Material |
+| ---: | --- | --- | --- | --- |
+| 1 | Design the AI processing pipeline and classification criteria. Review collected Facebook posts to identify relevant listings, commercial advertisements, and individual seller characteristics. | 05/11/2026 | 05/11/2026 | — |
+| 2 | Develop the AI Worker for processing collected posts. Establish classification stages and processing statuses. Review the vector embedding integration and its potential application to product matching. | 06/11/2026 | 06/11/2026 | [PostgreSQL](https://www.postgresql.org/docs/) |
+| 3 | Develop FastAPI endpoints for retrieving collected posts and supporting product-based browsing. Integrate PostgreSQL queries with the application and review the **S3** media storage workflow. | 07/11/2026 | 07/11/2026 | [FastAPI Documentation](https://fastapi.tiangolo.com/) |
+| 4 | Develop the Macket frontend with a marketplace-style interface. Organize electronics listings by product categories and MacBook models. Integrate frontend components with the backend APIs. | 08/11/2026 | 08/11/2026 | — |
+| 5 | Perform integration testing across Apify, the ingestion module, **RDS** PostgreSQL, the AI Worker, and the web application. Review processing logs and identify a workflow issue where newly collected posts remain pending because the AI Worker is not automatically triggered after ingestion. | 09/11/2026 | 09/11/2026 | [**AWS Lambda**](https://docs.aws.amazon.com/lambda/) |
 
-### Week 11 Achievements:
+### Weekly results
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Established the AI-based post classification workflow.
+- Developed classification criteria for identifying relevant electronics listings and commercial sellers.
+- Integrated the backend application with collected Facebook data stored in PostgreSQL.
+- Developed the marketplace-style frontend and product-based browsing interface.
+- Established the main integration flow between data collection, database storage, AI processing, and the web application.
+- Successfully tested the manual data collection and ingestion workflow.
+- Identified an automation issue between the ingestion module and the AI Worker that requires further improvement.

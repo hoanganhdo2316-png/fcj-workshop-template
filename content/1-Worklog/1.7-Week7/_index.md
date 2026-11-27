@@ -1,57 +1,31 @@
 ---
 title: "Week 7 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2025-11-03
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+**Period:** 03/11/2025 – 10/11/2025
 
-### Week 7 Objectives:
+### Week 7 objectives
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Explore generative AI capabilities on AWS and supporting data-collection tools.
+- Consolidate the AWS service knowledge learned during the period.
+- Start building a study-assistant chatbot with **Amazon EC2**, **Amazon RDS**, and **Amazon Bedrock**.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Learning activities during the week
 
+| No. | Activities | Start Date | Completion Date | Reference Material |
+| ---: | --- | --- | --- | --- |
+| 1 | Studied **Amazon Bedrock** concepts, foundation models, model access, prompts, and responsible usage considerations. | 03/11/2025 | 04/11/2025 | [**Amazon Bedrock**](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) |
+| 2 | Learned the purpose of Apify as an external web-crawling and data-collection tool. | 05/11/2025 | 06/11/2025 | [Apify](https://docs.apify.com/) |
+| 3 | Reviewed how Docker and AWS services can support repeatable application workflows. | 07/11/2025 | 08/11/2025 | [Docker](https://docs.docker.com/learn/), [**Amazon ECR**](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html) |
+| 4 | Consolidated notes across **IAM**, compute, storage, databases, networking, serverless, security, monitoring, and AI. | 09/11/2025 | 10/11/2025 | [AWS Overview](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html) |
+| 5 | Started building a study-assistant chatbot using **Amazon EC2**, **Amazon RDS**, and **Amazon Bedrock**. | Midweek | End of Week 7 | [**Amazon EC2**](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html), [**Amazon RDS**](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html), [**Amazon Bedrock**](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) |
 
-### Week 7 Achievements:
+### Weekly results
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Built a high-level understanding of how **Bedrock** may fit into an AI-enabled application.
+- Identified the boundary between AWS-managed services and external tools such as Apify.
+- Started the chatbot project and continued developing it in [Week 8](../1.8-week8/).
