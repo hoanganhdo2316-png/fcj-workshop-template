@@ -1,58 +1,35 @@
 ---
 title: "Worklog Tuần 12"
-date: 2024-01-01
-weight: 2
+date: 2026-11-10
+weight: 12
 chapter: false
 pre: " <b> 1.12 </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-### Mục tiêu tuần 12:
+**Thời gian:** 10/11/2026 – 15/11/2026
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu tuần 12
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+- Rà soát tình trạng ứng dụng Macket và hạ tầng AWS.
+- Cải thiện kết nối mạng, bảo mật và hiệu quả chi phí hạ tầng.
+- Rà soát các vấn đề tích hợp còn mở và ghi lại hướng cải thiện.
+- Hoàn thiện sơ đồ kiến trúc đám mây và tài liệu dự án.
 
+### Nội dung thực hiện trong tuần
 
-### Kết quả đạt được tuần 12:
+| STT | Nội dung thực hiện | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| ---: | --- | --- | --- | --- |
+| 1 | Rà soát tài nguyên AWS đã triển khai và kiểm tra kết nối giữa **EC2**, **Amazon RDS** for PostgreSQL và **S3**. Kiểm tra security group và quyền truy cập tài nguyên. | 10/11/2026 | 10/11/2026 | [**Amazon VPC**](https://docs.aws.amazon.com/vpc/) |
+| 2 | Cấu hình gateway endpoint cho **Amazon S3** trong **Amazon VPC** để cải thiện kết nối giữa **EC2** và **S3**. Rà soát các bảng định tuyến liên quan và kiểm tra đường đi của yêu cầu **S3**. | 11/11/2026 | 11/11/2026 | [Gateway Endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html) |
+| 3 | Rà soát nhật ký ứng dụng, kết quả nhập dữ liệu và vấn đề tích hợp AI Worker còn mở. Đánh giá chi phí hạ tầng và xác định hướng tăng độ tin cậy và tự động hóa. | 12/11/2026 | 12/11/2026 | [AWS Pricing Calculator](https://calculator.aws/) |
+| 4 | Cập nhật sơ đồ kiến trúc đám mây theo tài nguyên đã triển khai, cấu hình subnet và kết nối giữa các dịch vụ. | 13/11/2026 | 13/11/2026 | — |
+| 5 | Tổng kết kết quả triển khai, ghi lại các giới hạn kỹ thuật và hướng cải thiện, đồng thời chuẩn bị báo cáo thực tập cuối kỳ. | 14/11/2026 | 15/11/2026 | — |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả đạt được trong tuần
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Rà soát tình trạng vận hành của ứng dụng Macket và hạ tầng AWS.
+- Cấu hình gateway endpoint cho **Amazon S3** để tài nguyên trong **Amazon VPC** có thể kết nối riêng tư với **S3**.
+- Rà soát cấu hình mạng, quyền truy cập tài nguyên và chi phí hạ tầng.
+- Ghi lại các vấn đề tích hợp còn mở và hướng xử lý.
+- Cập nhật sơ đồ kiến trúc đám mây theo trạng thái triển khai thực tế.
+- Tổng kết kết quả dự án và chuẩn bị tài liệu kỹ thuật cuối kỳ.

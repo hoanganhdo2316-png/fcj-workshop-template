@@ -6,34 +6,32 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+This worklog covers my AWS studies, the study-assistant chatbot project, and my work on Macket from **25/10/2026 to 15/11/2026**.
 
-**On this page**, you will need to introduce your worklog. **How** did you complete it? How many weeks did you take to complete the program? **What** did you do in those weeks?
+### AWS studies and chatbot project
 
-Typically, and as a standard, a worklog is carried out over about 3 months (throughout the internship period) with weekly contents as follows:
+**Week 1:** [AWS overview and **IAM**](1.1-week1/)
 
-**Week 1:** [Getting familiar with AWS and basic AWS services](1.1-week1/)
+**Week 2:** [**EC2** and **VPC** fundamentals](1.2-week2/)
 
-**Week 2:** [Doing task A...](1.2-week2/)
+**Week 3:** [**S3**, **RDS** and **Secrets Manager**](1.3-week3/)
 
-**Week 3:** [Doing task B...](1.3-week3/)
+**Week 4:** [**Lambda** and **EventBridge**](1.4-week4/)
 
-**Week 4:** [Doing task C...](1.4-week4/)
+**Week 5:** [**Route 53**, **CloudFront** and **WAF**](1.5-week5/)
 
-**Week 5:** [Doing task D...](1.5-week5/)
+**Week 6:** [Docker, **ECR**, **CloudWatch** and **CloudTrail**](1.6-week6/)
 
-**Week 6:** [Doing task E...](1.6-week6/)
+**Week 7:** [**Bedrock**, Apify and the start of the chatbot project](1.7-week7/)
 
-**Week 7:** [Doing task G...](1.7-week7/)
+**Week 8:** [Study-assistant chatbot and decision to switch to Macket](1.8-week8/)
 
-**Week 8:** [Doing task H...](1.8-week8/)
+### Macket project
 
-**Week 9:** [Doing task I...](1.9-week9/)
+**Week 9:** [AWS architecture, infrastructure and FastAPI backend](1.9-week9/)
 
-**Week 10:** [Doing task L...](1.10-week10/)
+**Week 10:** [Data collection with Apify, Docker and **AWS Lambda**](1.10-week10/)
 
-**Week 11:** [Doing task M...](1.11-week11/)
+**Week 11:** [AI classification, web application and integration testing](1.11-week11/)
 
-**Week 12:** [Doing task N...](1.12-week12/)
+**Week 12:** [Infrastructure review, **S3** gateway endpoint and documentation](1.12-week12/)

@@ -5,104 +5,167 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+## Macket
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+Nền tảng dùng AI để giúp cửa hàng và reseller tìm nguồn MacBook đã qua sử dụng trên Facebook.
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+## 1. Tóm tắt dự án
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+Cửa hàng và reseller muốn thu mua thiết bị trực tiếp từ người dùng cá nhân thường phải đọc nhiều bài đăng của những người bán thương mại khác. Macket tập trung vào thị trường Apple MacBook đã qua sử dụng và giúp người thu mua tìm các bài đăng có khả năng đến từ người bán máy chính chủ.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+Hệ thống thu thập bài đăng từ các nhóm Facebook, phát hiện nội dung trùng lặp và dùng mô hình ngôn ngữ lớn (LLM) để phân loại người bán. Người thu mua có thể lọc kết quả và mở bài đăng gốc để liên hệ.
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+Macket được thiết kế cho AWS Region Singapore. Dự án hiện dùng OpenAI API để phân loại và sẽ xem xét **Amazon Bedrock** khi có quyền truy cập mô hình phù hợp.
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+## 2. Vấn đề cần giải quyết
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+**Khó khăn hiện tại**
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+- Bài đăng phân tán trong nhiều nhóm Facebook. Người thu mua phải theo dõi từng nhóm, trong khi những máy có giá tốt có thể đã được bán trước khi họ thấy bài đăng.
+- Model, cấu hình, giá và tình trạng máy thường được viết dưới dạng văn bản tự do. Cùng một bài đăng có thể xuất hiện ở nhiều nhóm.
+- Bài đăng của reseller có thể giống bài thanh lý của cá nhân, khiến người thu mua khó xác định nguồn hàng phù hợp.
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+**Giải pháp đề xuất**
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+- Thu thập bài đăng theo lịch và phát hiện dữ liệu trùng lặp trước khi xử lý.
+- Dùng system prompt để xác định tiêu chí phân loại người bán. Đối chiếu UID trước để tránh dùng LLM phân loại lại các reseller đã biết.
+- Cung cấp giao diện tìm kiếm, lọc và mở bài đăng gốc.
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+## 3. Kiến trúc giải pháp
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+Kiến trúc mục tiêu sử dụng AWS Region Asia Pacific (Singapore), `ap-southeast-1`. Kiến trúc bao gồm hạ tầng đã triển khai và các thành phần dự kiến cho những giai đoạn tiếp theo.
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+<!-- Chèn hình kiến trúc Macket tại đây. -->
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+**Các thành phần chính**
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+- **Amazon Route 53**, **Amazon CloudFront** và **AWS WAF** phụ trách DNS, phân phối và lưu đệm nội dung, đồng thời kiểm tra yêu cầu HTTP trong kiến trúc mục tiêu.
+- **Amazon VPC** phân tách subnet công khai của ứng dụng và subnet riêng của cơ sở dữ liệu. Internet gateway cung cấp kết nối Internet cho máy chủ ứng dụng. Security group giới hạn quyền truy cập cơ sở dữ liệu ở lớp ứng dụng.
+- **Amazon EC2** chạy frontend, backend FastAPI, Nginx reverse proxy, AI Worker, logic tìm kiếm và quản lý người dùng. Giai đoạn đầu dùng một instance để kiểm soát chi phí.
+- **Amazon RDS for PostgreSQL** lưu bài đăng, thông tin sản phẩm, nguồn thu thập, UID người bán, tài khoản và kết quả phân loại. **Amazon S3** lưu ảnh và dữ liệu phi cấu trúc. **S3 gateway endpoint** cho phép lưu lượng phù hợp từ **EC2** đến **S3** đi qua mạng AWS.
+- **Amazon EventBridge Scheduler** và **AWS Lambda** được thiết kế để lên lịch và điều phối việc thu thập. **Lambda** gửi yêu cầu chạy tác vụ cho Apify, sau đó dịch vụ thu thập chuyển bài đăng về backend API.
+- **AWS IAM** và **AWS Secrets Manager** quản lý quyền truy cập và thông tin bí mật. **Amazon CloudWatch** và **AWS CloudTrail** đảm nhiệm giám sát vận hành và ghi nhận hoạt động API trong kiến trúc mục tiêu. Zalo OAuth là phương thức đăng nhập dự kiến.
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+Sau khi nhận dữ liệu, backend kiểm tra bài đăng trùng lặp và đối chiếu UID với danh sách reseller đã biết. AI Worker gửi những bài còn cần phân loại đến mô hình và nhận kết quả JSON. Hệ thống lưu kết quả trong **Amazon RDS**, ghi nhận UID của reseller mới để tái sử dụng và hiển thị các bài phù hợp trên web.
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+## 4. Triển khai kỹ thuật
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+- **Ứng dụng và dữ liệu.** Hạ tầng đã triển khai gồm **Amazon EC2**, FastAPI, Nginx, tên miền có HTTPS và **Amazon RDS for PostgreSQL**. Dự án đã kiểm tra kết nối từ backend đến cơ sở dữ liệu và bảng định tuyến của **S3 gateway endpoint**.
+- **Thu thập và phân loại.** Dự án đã kiểm thử thu thập bài đăng qua Apify. AI Worker gửi caption và tiêu chí phân loại đến OpenAI API. System prompt dùng một tập nhỏ ví dụ thực tế từ người bán cá nhân và reseller. Độ chính xác cần được đánh giá trên bài đăng mới.
+- **Thông tin bí mật.** **AWS Secrets Manager** lưu API key của OpenAI và Apify cùng mật khẩu cơ sở dữ liệu.
+- **Triển khai và vận hành.** Phương án triển khai sử dụng Docker, GitHub Actions và **Amazon ECR** để đóng gói, quản lý phiên bản và triển khai lên **Amazon EC2** hoặc **AWS Lambda**. CI/CD hoàn chỉnh, thu thập theo lịch, tự động hóa toàn bộ luồng AI, giám sát tập trung và bảo mật nâng cao vẫn đang được hoàn thiện.
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+## 5. Lộ trình phát triển
 
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+**Giai đoạn 1 · Hạ tầng nền tảng**
+
+- Thiết lập **EC2**, **RDS**, **VPC** và **S3**.
+- Cấu hình tên miền, HTTPS và Backend API.
+- Thiết lập Public Subnet, Private DB Subnet và Security Group.
+- Tích hợp **S3 Gateway Endpoint**.
+- Kiểm thử kết nối giữa các thành phần.
+**Giai đoạn 2 · Tự động hóa thu thập dữ liệu**
+
+- Hoàn thiện module thu thập bài đăng.
+- Tích hợp dịch vụ crawling bên ngoài.
+- Xây dựng cơ chế phát hiện dữ liệu trùng lặp.
+- Tích hợp **EventBridge Scheduler** và **AWS Lambda**.
+- Hoàn thiện quá trình lưu trữ bài đăng và hình ảnh.
+**Giai đoạn 3 · Xử lý và phân loại bằng AI**
+
+- Tích hợp LLM qua OpenAI API và xem xét chuyển sang **Amazon Bedrock** khi có quyền truy cập mô hình phù hợp.
+- Xây dựng System Prompt quy định các tiêu chí phân loại người bán.
+- Hoàn thiện AI Worker tự động phân tích nội dung bài đăng.
+- Kiểm thử độ chính xác của kết quả phân loại trên dữ liệu thực tế.
+- Tối ưu System Prompt và chi phí sử dụng mô hình AI.
+**Giai đoạn 4 · Phát triển ứng dụng**
+
+- Hoàn thiện giao diện người dùng.
+- Phát triển các bộ lọc bài đăng và người bán.
+- Tích hợp Zalo OAuth.
+- Tối ưu trải nghiệm tìm kiếm và hiển thị kết quả.
+- Thực hiện kiểm thử chức năng toàn hệ thống.
+**Giai đoạn 5 · Bảo mật và tối ưu vận hành**
+
+- Hoàn thiện quy trình CI/CD với GitHub Actions và **Amazon ECR**.
+- Tích hợp **CloudFront** và **AWS WAF**.
+- Hoàn thiện quản lý quyền truy cập với **IAM** và **Secrets Manager**.
+- Thiết lập giám sát thông qua **CloudWatch** và **CloudTrail**.
+- Thực hiện kiểm thử tải và đánh giá khả năng mở rộng.
+- Đánh giá và tối ưu chi phí vận hành AWS.
+## 6. Dự toán chi phí
+
+Kiến trúc Macket được thiết kế theo hướng tiết kiệm chi phí trong giai đoạn phát triển ban đầu, đồng thời duy trì khả năng mở rộng khi số lượng người dùng tăng lên.
+
+Dự toán sơ bộ dưới đây sử dụng Region Singapore, mô hình On-Demand, một **EC2** instance và một **RDS** instance Single-AZ.
+
+<!-- Chèn hình ước tính chi phí AWS tại đây. -->
+
+| Dịch vụ | Chi phí dự kiến/tháng (USD) |
+| --- | ---: |
+| **Amazon EC2** và **EBS** | 13–23 |
+| **Amazon RDS** PostgreSQL | 20–27 |
+| **Amazon S3** | 1–3 |
+| **Amazon ECR** | 0.5–2 |
+| **Amazon CloudFront** | 0–3 |
+| **AWS WAF** | 6–10 |
+| **Amazon Route 53** | 0.5–1 |
+| **AWS Lambda** và **EventBridge** | 0–1 |
+| **AWS Secrets Manager** | 1–3 |
+| **Amazon CloudWatch** | 1–4 |
+| **AWS CloudTrail** | 0–2 |
+| Public IPv4 | 3.65 |
+| **S3 Gateway Endpoint** | 0 |
+| Tổng chi phí dự kiến | 46.65–82.65 |
+
+Dự toán chưa bao gồm chi phí **Amazon Bedrock**, OpenAI API, dịch vụ crawling bên ngoài, thuế và đăng ký tên miền. Chi phí thực tế phụ thuộc vào cấu hình tài nguyên và mức độ sử dụng.
+
+**Chiến lược tối ưu chi phí**
+
+- Sử dụng một **EC2** instance trong giai đoạn đầu.
+- Sử dụng **RDS** Single-AZ khi chưa có yêu cầu tính sẵn sàng cao.
+- Sử dụng **Lambda** cho các tác vụ điều phối ngắn hạn thay vì duy trì máy chủ riêng.
+- Sử dụng **S3 Gateway Endpoint** miễn phí.
+- Chỉ gọi LLM cho bài đăng mới cần phân loại, tận dụng danh sách UID của reseller đã ghi nhận.
+- Tối ưu System Prompt để giảm lượng token không cần thiết.
+- Lựa chọn mô hình AI phù hợp với tác vụ phân loại.
+- Không triển khai **NAT Gateway** và các **Interface Endpoint** có phí khi chưa có nhu cầu thực tế.
+- Theo dõi chi phí vận hành định kỳ.
+## 7. Đánh giá rủi ro
+
+| Rủi ro | Ảnh hưởng | Biện pháp giảm thiểu |
+| --- | --- | --- |
+| Thay đổi chính sách hoặc cấu trúc dữ liệu Facebook | Gián đoạn thu thập dữ liệu | Tách riêng module crawling, sử dụng nguồn dữ liệu được phép truy cập |
+| Phụ thuộc vào dịch vụ crawling bên ngoài | Không cập nhật được bài đăng mới | Thiết lập cơ chế retry, ghi log và chuẩn hóa giao diện tích hợp |
+| LLM phân loại người bán không chính xác | Bỏ sót nguồn hàng tiềm năng | Đánh giá kết quả trên tập dữ liệu mẫu và cải thiện System Prompt |
+| Dữ liệu trùng lặp | Tăng chi phí lưu trữ và xử lý AI | Phát hiện trùng lặp trước khi xử lý |
+| Rò rỉ API Key hoặc thông tin xác thực | Truy cập trái phép, phát sinh chi phí | **IAM** Role, **Secrets Manager** và nguyên tắc cấp quyền tối thiểu |
+| Truy cập trái phép vào cơ sở dữ liệu | Mất hoặc rò rỉ dữ liệu | Private Subnet, Security Group, mã hóa kết nối và sao lưu |
+| **EC2** hoặc **RDS** gặp sự cố | Gián đoạn dịch vụ | Sao lưu định kỳ, giám sát và xây dựng quy trình phục hồi |
+| Chi phí AI và crawling tăng nhanh | Vượt ngân sách | Giới hạn số lượng bài đăng và kiểm soát mức sử dụng |
+| Quyền riêng tư và quyền sử dụng nội dung | Rủi ro pháp lý | Tuân thủ quyền truy cập dữ liệu, hạn chế lưu thông tin cá nhân và dẫn nguồn bài đăng gốc |
+
+## 8. Kết quả kỳ vọng
+
+### 8.1. Đối với người dùng
+
+Macket hướng đến việc giúp các cửa hàng và reseller giảm đáng kể thời gian tìm kiếm nguồn hàng, hạn chế việc phải theo dõi thủ công nhiều hội nhóm Facebook và tăng khả năng tiếp cận những người dùng có nhu cầu bán MacBook chính chủ.
+
+### 8.2. Đối với hệ thống
+
+- Tự động thu thập và cập nhật bài đăng định kỳ.
+- Phân loại người bán cá nhân và reseller bằng LLM.
+- Cho phép điều chỉnh các tiêu chí phân loại thông qua System Prompt.
+- Cung cấp giao diện tập trung để tìm kiếm và sàng lọc bài đăng.
+- Phân tách tài nguyên tính toán, cơ sở dữ liệu và lưu trữ.
+- Tự động hóa quá trình triển khai ứng dụng.
+- Giám sát hoạt động, kiểm soát quyền truy cập và tối ưu chi phí vận hành.
+
+Sau khi hoàn thiện và kiểm chứng hiệu quả trên thị trường MacBook đã qua sử dụng, kiến trúc của Macket có thể được mở rộng sang những nhóm sản phẩm công nghệ khác.
+
+### 8.3. Đối với quá trình học tập và phát triển chuyên môn
+
+Thông qua dự án Macket, tôi có cơ hội áp dụng kiến thức về AWS vào một bài toán thực tế, từ xây dựng hạ tầng mạng, triển khai ứng dụng, quản lý cơ sở dữ liệu đến tích hợp trí tuệ nhân tạo và tự động hóa vận hành.
+
+Dự án giúp tôi phát triển tư duy thiết kế hệ thống, cân bằng giữa yêu cầu nghiệp vụ, bảo mật, hiệu suất, khả năng mở rộng và chi phí, thay vì chỉ tập trung vào phát triển các tính năng phần mềm.

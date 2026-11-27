@@ -13,25 +13,25 @@ chapter: false
 {{% /notice %}}
 
 ### Student Information:
-&emsp; **Full Name:** Nguyen Van A
+&emsp; **Full Name:** Đỗ Văn Hoàng Anh
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Phone Number:** 0963025264
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** hoanganhdo2316@gmail.com
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** Trường đại học FPT
 
-&emsp; **Major:** Information Technology
+&emsp; **Major:** AI
 
-&emsp; **Class:** AWS082025
+&emsp; **Class:** Không có lớp
 
-&emsp; **Internship Company:** Amazon Web Services Viet Nam Company Limited
+&emsp; **Internship Company:** AWS
 
-&emsp; **Internship Position:** Workforce Bootcamp - First Cloud AI Journey
+&emsp; **Internship Position:**
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:**
 
-![Your profile picture](/images/avatar.png)
+![Ảnh đại diện](/images/avatar.jpg)
 
 ### Report Content
 

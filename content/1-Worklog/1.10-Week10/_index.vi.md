@@ -1,59 +1,37 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-10-31
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+**Thời gian:** 31/10/2026 – 04/11/2026
 
-### Mục tiêu tuần 10:
+### Mục tiêu tuần 10
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Nghiên cứu và đánh giá các giải pháp thu thập bài đăng từ các nhóm Facebook.
+- Phát triển mô-đun tự động thu thập bài đăng bán đồ điện tử đã qua sử dụng.
+- Tối ưu chi phí thu thập và giảm số bài đăng không cần thiết từ người bán thương mại.
+- Xây dựng luồng nhập dữ liệu từ dịch vụ thu thập bên ngoài vào PostgreSQL.
+- Chuẩn bị mô-đun thu thập để triển khai bằng container và chạy theo lịch.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Nội dung thực hiện trong tuần
 
+| STT | Nội dung thực hiện | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| ---: | --- | --- | --- | --- |
+| 1 | Nghiên cứu các thư viện mã nguồn mở để thu thập bài đăng Facebook. Thử nghiệm crawler ban đầu, gặp lỗi phụ thuộc và phân tích JSON, rồi đánh giá các phương án thay thế. | 31/10/2026 | 31/10/2026 | [GitHub](https://github.com/) |
+| 2 | Đánh giá các Apify Actor dành cho nhóm Facebook. Thử nghiệm Actor ban đầu và ghi nhận hạn chế về chi phí cùng tỷ lệ cao bài đăng từ người bán thương mại. | 01/11/2026 | 01/11/2026 | [Apify Store](https://apify.com/store) |
+| 3 | Chọn Apify Actor có chi phí phù hợp hơn, lập danh sách các nhóm Facebook hoạt động tích cực và cấu hình tham số thu thập, sắp xếp, độ mới của bài đăng và quy tắc loại trừ người bán. | 02/11/2026 | 02/11/2026 | [Apify Documentation](https://docs.apify.com/) |
+| 4 | Phát triển mô-đun Python để khởi chạy tác vụ thu thập, lấy dữ liệu, chuẩn hóa bài đăng và xử lý thông tin tác giả, URL ảnh và siêu dữ liệu. Bổ sung phát hiện trùng lặp và nhập dữ liệu vào cơ sở dữ liệu. | 03/11/2026 | 03/11/2026 | [Apify API](https://docs.apify.com/api/v2) |
+| 5 | Cấu hình môi trường phát triển Docker và chuẩn bị đóng gói mô-đun thu thập bằng container. Xây dựng luồng chạy trên **AWS Lambda** với chu kỳ mục tiêu 10 phút, đồng thời rà soát nhật ký thực thi và cơ chế xử lý lỗi. | 04/11/2026 | 04/11/2026 | [Docker](https://docs.docker.com/), [**AWS Lambda**](https://docs.aws.amazon.com/lambda/) |
 
-### Kết quả đạt được tuần 10:
+### Kết quả đạt được trong tuần
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Đánh giá nhiều phương án thu thập dữ liệu Facebook và xác định hạn chế của phương án mã nguồn mở ban đầu.
+- Chọn giải pháp thu thập bên ngoài có độ tin cậy và chi phí phù hợp hơn.
+- Giảm chi phí thu thập ước tính từ khoảng 5 USD xuống 0,20 USD trên mỗi 1.000 bài đăng bằng cách đổi Apify Actor.
+- Lập danh sách các nhóm Facebook hoạt động tích cực về đồ điện tử đã qua sử dụng.
+- Xây dựng mô-đun thu thập và luồng nhập dữ liệu có cấu trúc.
+- Triển khai phát hiện bài đăng trùng lặp và quy tắc loại trừ người bán thương mại.
+- Chuẩn bị mô-đun để triển khai bằng container và chạy theo lịch.
