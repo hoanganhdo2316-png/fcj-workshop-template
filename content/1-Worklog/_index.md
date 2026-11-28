@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-This worklog covers my AWS studies, the study-assistant chatbot project, and my work on Macket from **25/10/2026 to 15/11/2026**.
+This worklog covers my AWS studies, the study-assistant chatbot project, and my work on Macket. The Macket entries span **25/10/2026 to 25/11/2026**.
 
 ### AWS studies and chatbot project
 
@@ -35,3 +35,7 @@ This worklog covers my AWS studies, the study-assistant chatbot project, and my 
 **Week 11:** [AI classification, web application and integration testing](1.11-week11/)
 
 **Week 12:** [Infrastructure review, **S3** gateway endpoint and documentation](1.12-week12/)
+
+**Week 13:** [Frontend and collector configuration](1.13-week13/)
+
+**Week 14:** [Macket source sync from **EC2**](1.14-week14/)

@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-Nhật ký này ghi lại quá trình học AWS, xây dựng chatbot hỗ trợ học tập và thực hiện dự án Macket từ **25/10/2026 đến 15/11/2026**.
+Nhật ký này ghi lại quá trình học AWS, xây dựng chatbot hỗ trợ học tập và thực hiện dự án Macket. Các mốc của Macket được ghi từ **25/10/2026 đến 25/11/2026**.
 
 ### Học AWS và xây dựng chatbot
 
@@ -35,3 +35,7 @@ Nhật ký này ghi lại quá trình học AWS, xây dựng chatbot hỗ trợ 
 **Tuần 11:** [Phân loại bằng AI, ứng dụng web và kiểm thử tích hợp](1.11-week11/)
 
 **Tuần 12:** [Rà soát hạ tầng, gateway endpoint cho **S3** và tài liệu dự án](1.12-week12/)
+
+**Tuần 13:** [Củng cố frontend và cấu hình thu thập](1.13-week13/)
+
+**Tuần 14:** [Đồng bộ mã nguồn Macket từ **EC2**](1.14-week14/)
