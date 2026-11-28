@@ -10,6 +10,8 @@ pre: " <b> 2. </b> "
 
 An AI-powered platform that helps electronics stores and resellers source used MacBooks on Facebook.
 
+[Macket source code on GitHub](https://github.com/hoanganhdo2316-png/macket-aws)
+
 ## 1. Executive summary
 
 Stores and resellers looking to buy used electronics directly from individuals spend time sorting through listings from other commercial sellers. Macket focuses on used Apple MacBooks and gives buyers one place to find posts that are more likely to come from individual owners.
@@ -36,7 +38,7 @@ Macket is designed for the AWS Singapore Region. The project uses the OpenAI API
 
 The target architecture runs in AWS Asia Pacific (Singapore), `ap-southeast-1`. It includes resources already deployed and components planned for later phases.
 
-<!-- Insert the Macket architecture image here. -->
+![Macket AWS solution architecture diagram](/images/2-Proposal/macket-aws-architecture.png)
 
 **Main components**
 
@@ -103,8 +105,6 @@ After collection, the backend checks for duplicate posts and known reseller IDs.
 
 The initial design limits operating costs while allowing for future growth. This preliminary estimate assumes the Singapore Region, On-Demand pricing, one **EC2** instance, and one Single-AZ **RDS** instance.
 
-<!-- Insert the AWS cost estimate image here. -->
-
 | Service | Estimated monthly cost (USD) |
 | --- | ---: |
 | **Amazon EC2** and **EBS** | 13–23 |
@@ -123,6 +123,14 @@ The initial design limits operating costs while allowing for future growth. This
 | Estimated total | 46.65–82.65 |
 
 The estimate excludes **Amazon Bedrock**, the OpenAI API, the external collection service, taxes, and domain registration. Actual costs depend on resource configuration and usage.
+
+### Costs recorded in AWS Cost Explorer
+
+The screenshot taken on **28 November 2026** shows a total of **USD 25.66** for the selected report scope. **Amazon RDS** was the largest line item (USD 13.6153), followed by **Amazon EC2 Compute** (USD 5.6670). The screenshots do not show the selected date range, so these figures are presented separately from the monthly estimate above.
+
+![AWS costs by service totaling USD 25.66](/images/2-Proposal/macket-cost-explorer-overview.png)
+
+![Service line items shown in AWS Cost Explorer](/images/2-Proposal/macket-cost-explorer-by-service.png)
 
 **Cost optimization**
 

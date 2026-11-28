@@ -14,5 +14,6 @@ This article introduces load testing with k6 and infrastructure monitoring with 
 
 This article explains how AWS organizes Regions and Availability Zones, when to use Multi-AZ, and how it differs from Multi-Region.
 
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### [Blog 3 – Social media data pipeline on AWS](3.3-blog3/)
+
+This article explains a serverless pipeline for collecting, normalizing, and storing social media data, including the roles of **Amazon EventBridge**, **Amazon SQS**, and **AWS Step Functions**.
