@@ -18,5 +18,7 @@ aliases:
 
 3. **AI Worker:** Cấu hình OpenAI API, system prompt và giới hạn xử lý. Dùng runner trong `deploy/macket-ai-pipeline*` cho triển khai container. Stage 1 phân loại bài. Bài bán của cá nhân đủ điều kiện sang Stage 2 để trích xuất dữ liệu sản phẩm trước khi xử lý ảnh.
 
+   ![Hai giai đoạn của AI Worker: phân loại bài đăng và trích xuất thông tin](/images/5-Workshop/5.4-S3-onprem/macket-ai-worker-stages.png)
+
 <!-- ẢNH 05: Bài mẫu trong Apify và bản ghi tương ứng trong RDS. -->
 <!-- ẢNH 06: Kết quả AI và ảnh S3 của cùng bài mẫu. -->
