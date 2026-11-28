@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Tạo RDS PostgreSQL và kết nối EC2"
 weight: 2
 chapter: false

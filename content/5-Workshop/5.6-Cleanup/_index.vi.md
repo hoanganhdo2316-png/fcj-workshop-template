@@ -1,23 +1,20 @@
 ---
-title: "Kiểm tra sau triển khai"
+title: "Kiểm tra và dự toán chi phí"
 weight: 6
 chapter: false
 pre: " <b> 5.6. </b> "
 ---
 
-### Mục tiêu
+### Kiểm tra sau triển khai
 
-Xác nhận môi trường vừa dựng có thể xử lý và hiển thị một bài đăng mẫu.
+Mở trang qua HTTPS và kiểm tra `/api/health`. Chạy một lượt thu thập có giới hạn, đối chiếu bài mẫu trong RDS, kết quả AI, ảnh S3 và giao diện.
 
-### Các bước thực hiện
+<!-- ẢNH 08: Bài mẫu trên giao diện hoặc trạng thái thực tế. -->
 
-1. Kiểm tra trang mở qua HTTPS và backend truy vấn được RDS.
-2. Chạy một lượt thu thập có giới hạn. Đối chiếu mã lượt quét với bản ghi đã lưu trong PostgreSQL.
-3. Kiểm tra kết quả phân loại. Với bài đủ điều kiện, đối chiếu dữ liệu trích xuất và ảnh trên S3 với bài gốc. Mở giao diện và tìm sản phẩm theo mẫu MacBook tương ứng.
-4. Ghi lại bước bài mẫu đã đi tới và lỗi còn gặp. Có thể dùng Lịch sử quét trong Admin để tra lượt nếu bản triển khai có chức năng đó.
+### Dự toán chi phí
 
-<!-- ẢNH 10: 10-storefront.png — bài mẫu trên giao diện hoặc kết quả thực tế khi lọc theo mẫu máy. -->
+Dự toán trong Proposal cho cấu hình tham chiếu là **46,65–82,65 USD/tháng**. Khi dựng lab, theo dõi riêng chi phí Apify và OpenAI API. [Xem bảng dự toán trong Proposal](../../2-proposal/#6-dự-toán-chi-phí)
 
-### Kết quả mong đợi
+Bảng AWS Cost Explorer cho kỳ **01–30/11/2026** hiển thị **25,80 USD** tại thời điểm chụp ngày **28/11/2026**. Hai khoản lớn nhất là **RDS** (13,68 USD) và **EC2 Instances** (5,69 USD). Đây là số liệu của báo cáo có bộ lọc đang áp dụng.
 
-Có thể theo dõi bài mẫu từ lúc thu thập đến bước hoàn thành cuối cùng. Khi bài đủ điều kiện hiển thị, chụp kết quả trên giao diện khách hàng.
+![Bảng chi phí AWS và kỳ báo cáo tháng 11/2026](/images/2-Proposal/macket-cost-explorer-nov-2026.png)

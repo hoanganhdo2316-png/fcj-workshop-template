@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Prepare the AWS environment"
 weight: 1
 chapter: false

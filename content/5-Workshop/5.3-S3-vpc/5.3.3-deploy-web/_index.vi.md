@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Triển khai FastAPI, Nginx và HTTPS"
 weight: 3
 chapter: false

@@ -18,5 +18,5 @@ This workshop builds a small Macket environment in the **Singapore Region**. Sta
 - [5.3. Set up EC2, RDS, and the application](5.3-s3-vpc/)
 - [5.4. Set up the data pipeline](5.4-s3-onprem/)
 - [5.5. Configure Lambda, Scheduler, and operations](5.5-policy/)
-- [5.6. Verify the deployment](5.6-cleanup/)
+- [5.6. Deployment checks and cost estimate](5.6-cleanup/)
 - [5.7. Clean up lab resources](5.7-clean-resources/)

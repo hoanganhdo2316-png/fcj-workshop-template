@@ -18,4 +18,4 @@ The diagram describes the overall design. The lab starts with the network, EC2 h
 
 ![Macket AWS solution architecture diagram](/images/2-Proposal/macket-aws-architecture.png)
 
-See the [Macket Proposal](../../../2-proposal/) and [AWS environment setup](../../5.2-prerequiste/5.2.1-prepare-environment/).
+See the [Macket Proposal](../../../2-proposal/) and [AWS environment setup](../../5.2-prerequiste/).

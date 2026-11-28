@@ -126,11 +126,9 @@ The estimate excludes **Amazon Bedrock**, the OpenAI API, the external collectio
 
 ### Costs recorded in AWS Cost Explorer
 
-The screenshot taken on **28 November 2026** shows a total of **USD 25.66** for the selected report scope. **Amazon RDS** was the largest line item (USD 13.6153), followed by **Amazon EC2 Compute** (USD 5.6670). The screenshots do not show the selected date range, so these figures are presented separately from the monthly estimate above.
+The AWS Cost Explorer table for **1–30 November 2026** showed **USD 25.80** when captured on **28 November 2026**. The largest line items were **RDS** (USD 13.68) and **EC2 Instances** (USD 5.69). The figures reflect the report's applied filters.
 
-![AWS costs by service totaling USD 25.66](/images/2-Proposal/macket-cost-explorer-overview.png)
-
-![Service line items shown in AWS Cost Explorer](/images/2-Proposal/macket-cost-explorer-by-service.png)
+![AWS cost table and November 2026 date range](/images/2-Proposal/macket-cost-explorer-nov-2026.png)
 
 **Cost optimization**
 

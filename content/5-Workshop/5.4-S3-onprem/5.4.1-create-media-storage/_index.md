@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Create private S3 media storage"
 weight: 1
 chapter: false

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Configure the AI Worker"
 weight: 3
 chapter: false

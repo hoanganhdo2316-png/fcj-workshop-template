@@ -1,23 +1,20 @@
 ---
-title: "Verify the deployment"
+title: "Deployment checks and cost estimate"
 weight: 6
 chapter: false
 pre: " <b> 5.6. </b> "
 ---
 
-### Objective
+### Deployment checks
 
-Check whether the environment built in the preceding steps processes and displays one sample listing.
+Open the site over HTTPS and check `/api/health`. Start one bounded collection run and trace the sample through RDS, the AI results, the S3 image, and the storefront.
 
-### Steps
+<!-- IMAGE 08: Sample listing on the storefront or its observed status. -->
 
-1. Confirm the site opens over HTTPS and the backend can query RDS.
-2. Start one bounded collection run. Match its run ID to the stored post in PostgreSQL.
-3. Check its classification. For an eligible post, compare the extracted product details and S3 object with the source. Open the storefront and look for the product with the corresponding model filter.
-4. Record the stage reached and any remaining error. Admin Scan History can help trace a run if available in the deployed version.
+### Cost estimate
 
-<!-- IMAGE 10: 10-storefront.png — the sample listing or the observed result for its model filter. -->
+The Proposal estimates **USD 46.65–82.65 per month** for the reference configuration. Track Apify and OpenAI API costs separately when running the lab. [See the Proposal estimate](../../2-proposal/#6-budget-estimate)
 
-### Expected result
+The AWS Cost Explorer table for **1–30 November 2026** showed **USD 25.80** when captured on **28 November 2026**. The largest line items were **RDS** (USD 13.68) and **EC2 Instances** (USD 5.69). The figures reflect the report's applied filters.
 
-The sample has a traceable record from collection to the last completed stage. A storefront screenshot shows the result when the item is eligible for display.
+![AWS cost table and November 2026 date range](/images/2-Proposal/macket-cost-explorer-nov-2026.png)
