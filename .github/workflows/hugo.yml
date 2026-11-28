@@ -1,34 +1,61 @@
-name: Deploy Hugo site to GitHub Pages
+name: Workshop website
 
 on:
+  pull_request:
+    branches: [main]
   push:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: workshop-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
     steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+      - uses: actions/checkout@v4
         with:
-          hugo-version: "0.134.3"
+          persist-credentials: false
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.155.3"
           extended: true
-
-      - name: Build website
-        run: hugo --minify
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Build and check both languages
+        env:
+          HUGO_CANONIFYURLS: "true"
+        run: |
+          hugo --minify --baseURL https://macket.io.vn/workshop/
+          test -s public/index.html
+          test -s public/vi/index.html
+          test -s public/5-workshop/index.html
+          test -s public/vi/5-workshop/index.html
+          test -s public/index.json
+          test -s public/vi/index.json
+          if grep -rE ' (src|href)=["\x27]?/images/' --include='*.html' public; then
+            exit 1
+          fi
+          printf '%s\n' "$GITHUB_SHA" > public/revision.txt
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: gh-pages # <- đảm bảo đúng tên nhánh bạn dùng để deploy
-          force_orphan: true # <- đảm bảo xóa lịch sử cũ ở nhánh gh-pages (giảm lỗi)
+          path: public
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
