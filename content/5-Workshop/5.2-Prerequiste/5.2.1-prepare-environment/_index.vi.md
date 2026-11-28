@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Chuẩn bị môi trường AWS"
 weight: 1
 chapter: false

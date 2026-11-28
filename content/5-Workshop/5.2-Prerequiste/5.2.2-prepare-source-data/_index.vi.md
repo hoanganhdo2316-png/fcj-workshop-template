@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Chuẩn bị mã nguồn và dữ liệu"
 weight: 2
 chapter: false

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Cấu hình AI Worker"
 weight: 3
 chapter: false

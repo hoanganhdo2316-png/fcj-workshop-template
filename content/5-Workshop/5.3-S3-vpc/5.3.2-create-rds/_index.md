@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Create RDS PostgreSQL and connect from EC2"
 weight: 2
 chapter: false

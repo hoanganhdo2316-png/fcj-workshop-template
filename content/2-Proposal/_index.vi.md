@@ -123,11 +123,9 @@ Dự toán chưa bao gồm chi phí **Amazon Bedrock**, OpenAI API, dịch vụ 
 
 ### Chi phí ghi nhận trên AWS Cost Explorer
 
-Ảnh chụp ngày **28/11/2026** cho thấy tổng chi phí **25,66 USD** trong phạm vi báo cáo đang chọn. **Amazon RDS** chiếm phần lớn nhất (13,6153 USD), tiếp theo là **Amazon EC2 Compute** (5,6670 USD). Khoảng ngày của bộ lọc không hiển thị trong ảnh, nên số liệu này được trình bày riêng với dự toán theo tháng ở trên.
+Bảng AWS Cost Explorer cho kỳ **01–30/11/2026** hiển thị **25,80 USD** tại thời điểm chụp ngày **28/11/2026**. Hai khoản lớn nhất là **RDS** (13,68 USD) và **EC2 Instances** (5,69 USD). Đây là số liệu của báo cáo có bộ lọc đang áp dụng.
 
-![Biểu đồ chi phí AWS theo dịch vụ, tổng 25,66 USD](/images/2-Proposal/macket-cost-explorer-overview.png)
-
-![Các khoản chi phí theo dịch vụ hiển thị trong AWS Cost Explorer](/images/2-Proposal/macket-cost-explorer-by-service.png)
+![Bảng chi phí AWS và kỳ báo cáo tháng 11/2026](/images/2-Proposal/macket-cost-explorer-nov-2026.png)
 
 **Chiến lược tối ưu chi phí**
 

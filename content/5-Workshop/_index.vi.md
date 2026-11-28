@@ -18,5 +18,5 @@ Workshop hướng dẫn dựng môi trường Macket ở **Singapore**. Bạn s�
 - [5.3. Dựng EC2, RDS và ứng dụng](5.3-s3-vpc/)
 - [5.4. Thiết lập luồng dữ liệu](5.4-s3-onprem/)
 - [5.5. Cấu hình Lambda, Scheduler và vận hành](5.5-policy/)
-- [5.6. Kiểm tra sau triển khai](5.6-cleanup/)
+- [5.6. Kiểm tra và dự toán chi phí](5.6-cleanup/)
 - [5.7. Dọn tài nguyên thực hành](5.7-clean-resources/)

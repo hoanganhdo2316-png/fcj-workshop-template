@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Tạo máy chủ EC2 tại Singapore"
 weight: 1
 chapter: false

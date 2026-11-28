@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Launch EC2 in Singapore"
 weight: 1
 chapter: false

@@ -18,4 +18,4 @@ Sơ đồ mô tả phương án tổng thể. Phần thực hành bắt đầu b
 
 ![Sơ đồ kiến trúc giải pháp Macket trên AWS](/images/2-Proposal/macket-aws-architecture.png)
 
-Xem thêm [Proposal Macket](../../../2-proposal/) và phần [chuẩn bị môi trường AWS](../../5.2-prerequiste/5.2.1-prepare-environment/).
+Xem thêm [Proposal Macket](../../../2-proposal/) và phần [chuẩn bị môi trường AWS](../../5.2-prerequiste/).

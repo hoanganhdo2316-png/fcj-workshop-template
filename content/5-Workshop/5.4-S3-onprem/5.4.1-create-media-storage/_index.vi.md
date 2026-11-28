@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Tạo kho ảnh S3 riêng tư"
 weight: 1
 chapter: false
