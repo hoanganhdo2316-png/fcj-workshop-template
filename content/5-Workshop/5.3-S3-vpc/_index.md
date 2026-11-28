@@ -12,7 +12,9 @@ aliases:
 ### Step 1. Launch EC2
 In **EC2 → Launch instances**, choose Ubuntu Server 24.04 LTS x86-64 in Singapore. Attach the public subnet, application security group, and instance IAM role. Wait for the status checks, then connect and install Git, Python, a PostgreSQL client, and Nginx.
 
-<!-- IMAGE 02: Running EC2 instance in Singapore. -->
+![EC2 launch settings showing Ubuntu Server 24.04 LTS x86-64 and the t3.micro instance type](/images/5-Workshop/5.3-S3-vpc/macket-ec2-launch.png)
+
+*Example settings before launch: Ubuntu Server 24.04 LTS x86-64, `t3.micro`, and 8 GiB of storage.*
 
 ### Step 2. Create RDS PostgreSQL
 Create a DB subnet group from the private subnets. In **RDS → Create database**, choose PostgreSQL, Single-AZ, and **Public access: No**. Attach the DB security group. Connect from EC2 with `sslmode=require`, run `SELECT 1;`, and prepare the schema for the selected source version.
