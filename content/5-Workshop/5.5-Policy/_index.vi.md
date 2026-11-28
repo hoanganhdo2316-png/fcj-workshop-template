@@ -11,7 +11,7 @@ pre: " <b> 5.5. </b> "
 
 <!-- ẢNH 07: Nguồn image Lambda, target Scheduler hoặc log lượt chạy. -->
 
-## Log, Metrics và cảnh báo
+## Log và Metrics
 
 ### Amazon CloudWatch
 
@@ -20,8 +20,6 @@ Mở **CloudWatch → Dashboards → Macket-Monitoring** để xem CPU, RAM và 
 ![Dashboard Macket-Monitoring trong Amazon CloudWatch](/images/5-Workshop/5.5-Policy/macket-cloudwatch-dashboard.png)
 
 **Log kỹ thuật.** Vào **Logs → Log groups** và mở `/aws/lambda/<function-name>` để kiểm tra log thực thi của **AWS Lambda**. Log backend và AI Worker có trong **CloudWatch Logs** nếu đã cấu hình chuyển log từ **Amazon EC2**. [Hướng dẫn ghi log cho Lambda](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-cloudwatchlogs.html).
-
-**Cảnh báo mẫu.** Vào **Alarms → Create alarm**, chọn `Errors` của hàm thu thập, dùng thống kê `Sum` trong 5 phút và đặt ngưỡng `≥ 1` với điều kiện 1/1 điểm dữ liệu. Chọn `Treat missing data as good (not breaching)` để khoảng thời gian không có lượt chạy không tự kích hoạt cảnh báo. Để nhận email, chọn một chủ đề **Amazon SNS** làm đích thông báo khi vào trạng thái `ALARM` và xác nhận đăng ký email. Cảnh báo này theo dõi lỗi thực thi hàm. Kiểm tra trạng thái lượt crawl riêng trong Apify. [Hướng dẫn tạo cảnh báo CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Alarms.html).
 
 ### Nhật ký trên Macket Admin
 

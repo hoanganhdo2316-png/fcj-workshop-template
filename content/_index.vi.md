@@ -17,13 +17,13 @@ chapter: false
 
 &emsp; **Ngành:** AI
 
-&emsp; **Lớp:** Không có lớp
+&emsp; **Lớp:** The Rainfall
 
-&emsp; **Công ty thực tập:** AWS
+&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
 
-&emsp; **Vị trí thực tập:**
+&emsp; **Vị trí thực tập:** FCJ Cloud Intern
 
-&emsp; **Thời gian thực tập:**
+&emsp; **Thời gian thực tập:** Từ ngày 14/09/2026 đến ngày 14/12/2026
 
 <img src="/images/avatar.jpg" alt="Ảnh đại diện" width="150" style="max-width: 100%; height: auto;">
 
