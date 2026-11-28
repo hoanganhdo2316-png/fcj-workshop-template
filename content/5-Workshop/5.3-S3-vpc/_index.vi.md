@@ -16,8 +16,16 @@ Trong **EC2 → Launch instances**, chọn Ubuntu Server 24.04 LTS x86-64 ở Si
 
 *Cấu hình mẫu trước khi khởi tạo: Ubuntu Server 24.04 LTS x86-64, `t3.micro` và 8 GiB lưu trữ.*
 
+> **Lưu ý khi triển khai production.** Nếu phục vụ nhiều người dùng thực tế, nên chọn loại instance **EC2** có nhiều RAM hơn. Theo số liệu **Amazon CloudWatch** của Macket, `t3.micro` thường còn rất ít RAM khả dụng và dễ chạm giới hạn bộ nhớ.
+
 ### Bước 2. Tạo RDS PostgreSQL
-Tạo DB subnet group từ các private subnet. Trong **RDS → Create database**, chọn PostgreSQL, Single-AZ và **Public access: No**. Gắn security group DB. Từ EC2, kết nối bằng `sslmode=require`, chạy `SELECT 1;` và chuẩn bị schema theo phiên bản mã nguồn.
+Macket chọn PostgreSQL vì có thể lưu dữ liệu có cấu trúc như bài đăng và tài khoản trong các bảng, đồng thời lưu và truy vấn dữ liệu có cấu trúc linh hoạt như danh sách ảnh Apify và kết quả trích xuất của AI bằng `jsonb`. Backend hiện dùng `psycopg` và các truy vấn `jsonb` của PostgreSQL, nên đổi engine sẽ cần điều chỉnh mã nhập và truy vấn dữ liệu. [Tài liệu PostgreSQL về `jsonb`](https://www.postgresql.org/docs/current/datatype-json.html).
+
+![Màn hình Create database của Amazon RDS với PostgreSQL được chọn](/images/5-Workshop/5.3-S3-vpc/macket-rds-postgresql-create.png)
+
+*Ảnh minh họa bước chọn PostgreSQL trong **Amazon RDS**. Khi làm theo workshop, chọn **Full configuration** để thiết lập mạng theo hướng dẫn bên dưới.*
+
+Tạo DB subnet group từ các private subnet. Trong **RDS → Create database**, chọn PostgreSQL và **Full configuration**, sau đó chọn Single-AZ và đặt **Public access: No**. Gắn DB subnet group và security group của cơ sở dữ liệu. Từ **EC2**, kết nối bằng `sslmode=require`, chạy `SELECT 1;` và chuẩn bị schema theo phiên bản mã nguồn.
 
 <!-- ẢNH 03: RDS riêng tư hoặc SELECT 1 từ EC2. -->
 

@@ -18,5 +18,7 @@ aliases:
 
 3. **AI Worker:** Configure the OpenAI API, system prompt, and processing limits. Use the runner under `deploy/macket-ai-pipeline*` for container deployment. Stage 1 classifies posts. Eligible individual sales proceed to Stage 2 for product extraction before media processing.
 
+   ![The two stages of the AI Worker: post classification and information extraction](/images/5-Workshop/5.4-S3-onprem/macket-ai-worker-stages.png)
+
 <!-- IMAGE 05: Apify sample and matching RDS record. -->
 <!-- IMAGE 06: AI result and S3 image for the same sample. -->
