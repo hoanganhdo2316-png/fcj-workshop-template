@@ -14,5 +14,6 @@ Bài viết giới thiệu cách dùng k6 để mô phỏng tải và **Amazon C
 
 Bài viết giải thích cách AWS tổ chức Region và Availability Zone, khi nào nên dùng Multi-AZ và sự khác biệt với Multi-Region.
 
-###  [Blog 3 - ...](3.3-Blog3/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+### [Blog 3 – Pipeline dữ liệu mạng xã hội trên AWS](3.3-blog3/)
+
+Bài viết giải thích kiến trúc serverless để thu thập, chuẩn hóa và lưu trữ dữ liệu mạng xã hội, cùng vai trò của **Amazon EventBridge**, **Amazon SQS** và **AWS Step Functions**.

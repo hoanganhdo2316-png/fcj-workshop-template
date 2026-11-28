@@ -25,7 +25,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:**
 
-![Ảnh đại diện](/images/avatar.jpg)
+<img src="/images/avatar.jpg" alt="Ảnh đại diện" width="150" style="max-width: 100%; height: auto;">
 
 
 

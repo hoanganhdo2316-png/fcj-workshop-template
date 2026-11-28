@@ -1,32 +1,23 @@
 ---
-title : "Clean up"
-date : 2024-01-01
-weight : 6
-chapter : false
-pre : " <b> 5.6. </b> "
+title: "Verify the deployment"
+weight: 6
+chapter: false
+pre: " <b> 5.6. </b> "
 ---
-Congratulations on completing this workshop! 
-In this workshop, you learned architecture patterns for accessing Amazon S3 without using the Public Internet. 
-+ By creating a gateway endpoint, you enabled direct communication between EC2 resources and Amazon S3, without traversing an Internet Gateway. 
-+ By creating an interface endpoint you extended S3 connectivity to resources running in your on-premises data center via AWS Site-to-Site VPN or Direct Connect. 
 
-#### clean up
-1. Navigate to Hosted Zones on the left side of Route 53 console. Click the name of *s3.us-east-1.amazonaws.com* zone. Click Delete and confirm deletion by typing delete. 
+### Objective
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+Check whether the environment built in the preceding steps processes and displays one sample listing.
 
-2. Disassociate the Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+### Steps
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
+1. Confirm the site opens over HTTPS and the backend can query RDS.
+2. Start one bounded collection run. Match its run ID to the stored post in PostgreSQL.
+3. Check its classification. For an eligible post, compare the extracted product details and S3 object with the source. Open the storefront and look for the product with the corresponding model filter.
+4. Record the stage reached and any remaining error. Admin Scan History can help trace a run if available in the deployed version.
 
-4. Open the CloudFormation console  and delete the two CloudFormation Stacks that you created for this lab:
-+ PLOnpremSetup
-+ PLCloudSetup
+<!-- IMAGE 10: 10-storefront.png — the sample listing or the observed result for its model filter. -->
 
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
+### Expected result
 
-5. Delete S3 buckets
-+ Open S3 console
-+ Choose the bucket we created for the lab, click and confirm empty. Click delete and confirm delete.
-
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+The sample has a traceable record from collection to the last completed stage. A storefront screenshot shows the result when the item is eligible for display.

@@ -10,6 +10,8 @@ pre: " <b> 2. </b> "
 
 Nền tảng dùng AI để giúp cửa hàng và reseller tìm nguồn MacBook đã qua sử dụng trên Facebook.
 
+[Mã nguồn Macket trên GitHub](https://github.com/hoanganhdo2316-png/macket-aws)
+
 ## 1. Tóm tắt dự án
 
 Cửa hàng và reseller muốn thu mua thiết bị trực tiếp từ người dùng cá nhân thường phải đọc nhiều bài đăng của những người bán thương mại khác. Macket tập trung vào thị trường Apple MacBook đã qua sử dụng và giúp người thu mua tìm các bài đăng có khả năng đến từ người bán máy chính chủ.
@@ -36,7 +38,7 @@ Macket được thiết kế cho AWS Region Singapore. Dự án hiện dùng Ope
 
 Kiến trúc mục tiêu sử dụng AWS Region Asia Pacific (Singapore), `ap-southeast-1`. Kiến trúc bao gồm hạ tầng đã triển khai và các thành phần dự kiến cho những giai đoạn tiếp theo.
 
-<!-- Chèn hình kiến trúc Macket tại đây. -->
+![Sơ đồ kiến trúc giải pháp Macket trên AWS](/images/2-Proposal/macket-aws-architecture.png)
 
 **Các thành phần chính**
 
@@ -100,8 +102,6 @@ Kiến trúc Macket được thiết kế theo hướng tiết kiệm chi phí t
 
 Dự toán sơ bộ dưới đây sử dụng Region Singapore, mô hình On-Demand, một **EC2** instance và một **RDS** instance Single-AZ.
 
-<!-- Chèn hình ước tính chi phí AWS tại đây. -->
-
 | Dịch vụ | Chi phí dự kiến/tháng (USD) |
 | --- | ---: |
 | **Amazon EC2** và **EBS** | 13–23 |
@@ -120,6 +120,14 @@ Dự toán sơ bộ dưới đây sử dụng Region Singapore, mô hình On-Dem
 | Tổng chi phí dự kiến | 46.65–82.65 |
 
 Dự toán chưa bao gồm chi phí **Amazon Bedrock**, OpenAI API, dịch vụ crawling bên ngoài, thuế và đăng ký tên miền. Chi phí thực tế phụ thuộc vào cấu hình tài nguyên và mức độ sử dụng.
+
+### Chi phí ghi nhận trên AWS Cost Explorer
+
+Ảnh chụp ngày **28/11/2026** cho thấy tổng chi phí **25,66 USD** trong phạm vi báo cáo đang chọn. **Amazon RDS** chiếm phần lớn nhất (13,6153 USD), tiếp theo là **Amazon EC2 Compute** (5,6670 USD). Khoảng ngày của bộ lọc không hiển thị trong ảnh, nên số liệu này được trình bày riêng với dự toán theo tháng ở trên.
+
+![Biểu đồ chi phí AWS theo dịch vụ, tổng 25,66 USD](/images/2-Proposal/macket-cost-explorer-overview.png)
+
+![Các khoản chi phí theo dịch vụ hiển thị trong AWS Cost Explorer](/images/2-Proposal/macket-cost-explorer-by-service.png)
 
 **Chiến lược tối ưu chi phí**
 

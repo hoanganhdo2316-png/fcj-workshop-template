@@ -31,7 +31,7 @@ chapter: false
 
 &emsp; **Internship Duration:**
 
-![Ảnh đại diện](/images/avatar.jpg)
+<img src="/images/avatar.jpg" alt="Profile photo" width="150" style="max-width: 100%; height: auto;">
 
 ### Report Content
 
