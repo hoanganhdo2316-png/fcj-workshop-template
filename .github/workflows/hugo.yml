@@ -20,9 +20,11 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
+      - name: Checkout public source at the workflow commit
+        run: |
+          git init -q
+          git fetch --depth=1 https://github.com/hoanganhdo2316-png/fcj-workshop-template.git "$GITHUB_SHA"
+          git checkout --detach FETCH_HEAD
       - uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: "0.155.3"
@@ -31,21 +33,22 @@ jobs:
         env:
           HUGO_CANONIFYURLS: "true"
         run: |
-          hugo --minify --baseURL https://macket.io.vn/workshop/
-          test -s public/index.html
-          test -s public/vi/index.html
-          test -s public/5-workshop/index.html
-          test -s public/vi/5-workshop/index.html
-          test -s public/index.json
-          test -s public/vi/index.json
-          if grep -rE ' (src|href)=["\x27]?/images/' --include='*.html' public; then
+          site="$RUNNER_TEMP/workshop-site"
+          hugo --minify --baseURL https://macket.io.vn/workshop/ --destination "$site"
+          test -s "$site/index.html"
+          test -s "$site/vi/index.html"
+          test -s "$site/5-workshop/index.html"
+          test -s "$site/vi/5-workshop/index.html"
+          test -s "$site/index.json"
+          test -s "$site/vi/index.json"
+          if grep -rE " (src|href)=[\"']?/images/" --include='*.html' "$site"; then
             exit 1
           fi
-          printf '%s\n' "$GITHUB_SHA" > public/revision.txt
+          printf '%s\n' "$GITHUB_SHA" > "$site/revision.txt"
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main'
         with:
-          path: public
+          path: ${{ runner.temp }}/workshop-site
   deploy:
     if: github.ref == 'refs/heads/main'
     needs: build
