@@ -11,7 +11,7 @@ pre: " <b> 5.5. </b> "
 
 <!-- IMAGE 07: Lambda image source, Scheduler target, or run log. -->
 
-## Logs, metrics, and alarms
+## Logs and metrics
 
 ### Amazon CloudWatch
 
@@ -20,8 +20,6 @@ Open **CloudWatch → Dashboards → Macket-Monitoring** to view **Amazon EC2** 
 ![Macket-Monitoring dashboard in Amazon CloudWatch](/images/5-Workshop/5.5-Policy/macket-cloudwatch-dashboard.png)
 
 **Technical logs.** Go to **Logs → Log groups** and open `/aws/lambda/<function-name>` to view **AWS Lambda** execution logs. Backend and AI Worker logs are available in **CloudWatch Logs** if log forwarding from **Amazon EC2** has been configured. [Lambda logging guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-cloudwatchlogs.html).
-
-**Example alarm.** Go to **Alarms → Create alarm**, select `Errors` for the collector function, use `Sum` over five minutes, and set the threshold to `≥ 1` for one out of one datapoint. Choose `Treat missing data as good (not breaching)` so idle periods do not trigger the alarm. For email notifications, select an **Amazon SNS** topic for the `ALARM` state and confirm the email subscription. This alarm monitors function execution errors. Check the crawl run status separately in Apify. [CloudWatch alarms guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Alarms.html).
 
 ### Macket Admin logs
 

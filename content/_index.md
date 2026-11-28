@@ -8,10 +8,6 @@ chapter: false
     
 # Internship Report
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
 ### Student Information:
 &emsp; **Full Name:** Đỗ Văn Hoàng Anh
 
@@ -23,13 +19,13 @@ chapter: false
 
 &emsp; **Major:** AI
 
-&emsp; **Class:** Không có lớp
+&emsp; **Class:** The Rainfall
 
-&emsp; **Internship Company:** AWS
+&emsp; **Internship Company:** Amazon Web Services Vietnam Co., Ltd.
 
-&emsp; **Internship Position:**
+&emsp; **Internship Position:** FCJ Cloud Intern
 
-&emsp; **Internship Duration:**
+&emsp; **Internship Duration:** From 14/09/2026 to 14/12/2026
 
 <img src="/images/avatar.jpg" alt="Profile photo" width="150" style="max-width: 100%; height: auto;">
 
